@@ -20,7 +20,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ModuleScopePlugin from 'react-dev-utils/ModuleScopePlugin';
 import { RunScriptWebpackPlugin } from 'run-script-webpack-plugin';
-import webpack from 'webpack';
+import webpack, { ProvidePlugin } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 import { optimization } from './optimization';
 import { Config } from '@backstage/config';
@@ -114,6 +114,12 @@ export async function createConfig(
   }
 
   plugins.push(
+    new ProvidePlugin({
+      process: 'process/browser',
+    }),
+  );
+
+  plugins.push(
     new webpack.EnvironmentPlugin({
       APP_CONFIG: options.frontendAppConfigs,
     }),
@@ -175,6 +181,12 @@ export async function createConfig(
         net: false,
         tls: false,
         child_process: false,
+
+        /* new ignores */
+        path: false,
+        https: false,
+        http: false,
+        util: false,
       },
       plugins: [
         new LinkedPackageResolvePlugin(paths.rootNodeModules, externalPkgs),
