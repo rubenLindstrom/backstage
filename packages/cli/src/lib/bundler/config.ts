@@ -193,7 +193,7 @@ export async function createConfig(
         new ModuleScopePlugin(
           [paths.targetSrc, paths.targetDev],
           [paths.targetPackageJson],
-        ) as any,
+        ),
       ],
       alias: {
         'react-dom': '@hot-loader/react-dom',
@@ -285,7 +285,7 @@ export async function createBackendConfig(
         new ModuleScopePlugin(
           [paths.targetSrc, paths.targetDev],
           [paths.targetPackageJson],
-        ) as any,
+        ),
       ],
       alias: {
         'react-dom': '@hot-loader/react-dom',
