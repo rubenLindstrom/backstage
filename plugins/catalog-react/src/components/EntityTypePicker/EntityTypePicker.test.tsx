@@ -28,7 +28,7 @@ import { Entity } from '@backstage/catalog-model';
 import { EntityTypePicker } from './EntityTypePicker';
 import { MockEntityListContextProvider } from '../../testUtils/providers';
 import { catalogApiRef } from '../../api';
-import { EntityKindFilter, EntityTypeFilter } from '../../types';
+import { EntityKindFilter, EntityTypeFilter } from '../../filters';
 
 const entities: Entity[] = [
   {

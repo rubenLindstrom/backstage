@@ -22,7 +22,7 @@ import {
   DefaultEntityFilters,
   useEntityListProvider,
 } from './useEntityListProvider';
-import { EntityTypeFilter } from '../types';
+import { EntityTypeFilter } from '../filters';
 
 type EntityTypeReturn = {
   loading: boolean;

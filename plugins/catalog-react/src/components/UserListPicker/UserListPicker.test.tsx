@@ -32,7 +32,7 @@ import {
   identityApiRef,
   storageApiRef,
 } from '@backstage/core';
-import { EntityTagFilter, UserListFilter } from '../../types';
+import { EntityTagFilter, UserListFilter } from '../../filters';
 import { CatalogApi } from '@backstage/catalog-client';
 import { catalogApiRef } from '../../api';
 import { MockStorageApi } from '@backstage/test-utils';
