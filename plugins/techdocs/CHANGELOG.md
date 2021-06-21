@@ -1,5 +1,11 @@
 # @backstage/plugin-techdocs
 
+## 0.9.7
+
+### Patch Changes
+
+- 1dfec7a2a: Refactor the implicit logic from `<Reader />` into an explicit state machine. This resolves some state synchronization issues when content is refreshed or rebuilt in the backend.
+
 ## 0.9.6
 
 ### Patch Changes
