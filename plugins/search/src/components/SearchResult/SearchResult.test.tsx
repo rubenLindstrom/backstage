@@ -55,12 +55,28 @@ describe('SearchResult', () => {
     });
   });
 
-  it('On empty result value state', async () => {
+  it('On undefined value state', async () => {
     (useSearch as jest.Mock).mockReturnValueOnce({
       result: { loading: false, error: '', value: undefined },
     });
 
     const { getByRole } = render(<SearchResult>{() => <></>}</SearchResult>);
+
+    await waitFor(() => {
+      expect(
+        getByRole('heading', { name: 'Sorry, no results were found' }),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it('On empty result value state', async () => {
+    (useSearch as jest.Mock).mockReturnValueOnce({
+      result: { loading: false, error: '', value: { results: [] } },
+    });
+
+    const { getByRole: getByRole } = render(
+      <SearchResult>{() => <></>}</SearchResult>,
+    );
 
     await waitFor(() => {
       expect(
